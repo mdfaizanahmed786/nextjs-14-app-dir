@@ -5,13 +5,13 @@ import React from "react";
 function DocsPage({
   params,
 }: {
-  params: {
-    slug: string[];
+  params?: {
+    slug?: string[];
   };
 }) {
-  if (params.slug[0] === "feature" && params.slug[1] === "concept") {
+  if (params?.slug?.[0] === "feature" && params?.slug?.[1] === "concept") {
     return <div>Feature Concept</div>;
-  } else if (params.slug[0] === "feature" && params.slug[1] === "api") {
+  } else if (params?.slug?.[0] === "feature" && params?.slug[1] === "api") {
     return <div>Feature API</div>;
   }
 
