@@ -1,4 +1,5 @@
 import React from "react";
+import { notFound } from "next/navigation";
 
 function ReviewPage({
   params,
@@ -8,6 +9,9 @@ function ReviewPage({
     productId: string;
   };
 }) {
+  if(parseInt(params.reviewId) > 10) {
+    return notFound();
+  }
   return (
     <div>
       This is the product page having product id: {params.productId} and with
