@@ -1,4 +1,4 @@
-import { UserButton } from "@clerk/nextjs";
+import { SignInButton, SignedOut, UserButton } from "@clerk/nextjs";
 import Link from "next/link";
 
 export default function Header() {
@@ -7,7 +7,13 @@ export default function Header() {
       <Link href="/">
         <p>Header</p>
       </Link>
-      <UserButton />
+      {/* afterSignoutUrl tells us to not to leave the current page, redirect to the homepage to sign in... (Not the actual clerk page) */}
+      <UserButton afterSignOutUrl="/" />
+
+      {/* If below signed out then give us signIn button.. */}
+      <SignedOut>
+        <SignInButton afterSignInUrl="/dashboard" mode="modal" />
+      </SignedOut>
     </div>
   );
 }
