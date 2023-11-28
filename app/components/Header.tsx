@@ -1,5 +1,6 @@
 import { SignInButton, SignedOut, UserButton } from "@clerk/nextjs";
 import Link from "next/link";
+import { ThemeToggler } from "./theme/ThemeToggler";
 
 export default function Header() {
   return (
@@ -11,9 +12,12 @@ export default function Header() {
       <UserButton afterSignOutUrl="/" />
 
       {/* If below signed out then give us signIn button.. */}
-      <SignedOut>
-        <SignInButton afterSignInUrl="/dashboard" mode="modal" />
-      </SignedOut>
+      <div className="flex items-center gap-3">
+        <SignedOut>
+          <SignInButton afterSignInUrl="/dashboard" mode="modal" />
+        </SignedOut>
+        <ThemeToggler />
+      </div>
     </div>
   );
 }

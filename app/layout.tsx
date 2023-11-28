@@ -4,7 +4,7 @@ import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { ClerkProvider } from "@clerk/nextjs";
-import { ThemeProvider } from "./components/ThemeProvider";
+import { ThemeProvider } from "./components/theme/ThemeProvider";
 const inter = Inter({ subsets: ["latin"] });
 
 // In about page there is no description, so the description will be taken from root layout now.
