@@ -9,8 +9,11 @@ function ReviewPage({
     productId: string;
   };
 }) {
-  if(parseInt(params.reviewId) > 10) {
+  if(parseInt(params.reviewId) > 120) {
     return notFound();
+  }
+  if(parseInt(params.reviewId) > 15) {
+    throw new Error("This is going nowhere")
   }
   return (
     <div>
