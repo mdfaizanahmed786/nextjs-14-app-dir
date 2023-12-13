@@ -1,5 +1,7 @@
 "use client";
-
+// The more deeper the error files will be more granular the error will be and will be easy to manage the errors. 
+// This is the error boundary file for the review page.
+// If the error is taken at the root level, it will be difficult to manage the errors. and it will propogate down as well.
 export default function ErrorBoundary({
   error,
   reset,
