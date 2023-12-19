@@ -1,3 +1,3 @@
-export default function Revenue(){
+export default function RevenueMetrics(){
     return <div>Revenue</div>
 }
