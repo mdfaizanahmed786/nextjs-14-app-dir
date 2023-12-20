@@ -4,13 +4,18 @@ export default function ComplexLayout({
   notifications,
   revenue,
   users,
+  login
 }: {
   children: React.ReactNode;
   notifications: React.ReactNode;
   revenue: React.ReactNode;
   users: React.ReactNode;
-}) {
-  return (
+  login: React.ReactNode;
+}) 
+
+{
+  const loggedIn=false;
+  return loggedIn ? (
     <div>
         Hello world...
         {/* The below segment: /complex-dashboard/@children/page.tsx */}
@@ -20,5 +25,5 @@ export default function ComplexLayout({
             <div className="shadow-md mb-4 h-96 w-96 bg-white">{users}</div>
             <div className="shadow-md mb-4 h-96 w-96 bg-white">{revenue}</div>
     </div>
-  );
+  ) : login
 }
