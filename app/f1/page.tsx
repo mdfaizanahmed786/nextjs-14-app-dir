@@ -5,6 +5,7 @@ export default function F1() {
     <div>
       F1 Page
       <Link href="/f1/f2">Go to F2</Link>
+   
     </div>
   );
 }
