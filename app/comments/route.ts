@@ -1,7 +1,15 @@
 import { comments } from "./data";
-
+import { type NextRequest } from "next/server";
 // We can define an api folder to dump the api routes in
-export async function GET() {
+export async function GET(request: NextRequest) {
+  const searchParams = request.nextUrl.searchParams;
+  const comment = searchParams.get("comment");
+  console.log(comment, "comment")
+  if (comment) {
+    const singleComment = comments.filter((comm: any) => comm.text.includes(comment));
+    console.log(singleComment)
+    return Response.json(singleComment);
+  }
   return Response.json(comments);
 }
 
