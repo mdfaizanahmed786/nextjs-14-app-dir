@@ -1,0 +1,26 @@
+Data fetching in server components:
+Just use async await in the server component.
+To handle errors or loading state, we can use: error.tsx or loading.tsx file in the same directory.
+
+
+By default next.js caches the request data and it is stored in .next folder, inside having cache folder.
+It has miss/hit concept.
+
+
+To prevent caching, 
+you can have fetch(...url, {
+    cache: 'no-store'
+})
+
+
+This is some weird behavior
+
+But what for subsequent fetch requests?
+You can place the fetch above the no-store defined if you want to cache data.
+But if you store below the no-store, then it will not cache the data.
+
+The route segment configuration involves the following:
+export function fetchCache='default-cache'; or auto(default)
+
+By default nextjs caches the fetch requests before the dynamic functions and will not cache after the dynamic functions.
+cookies(), headers() and searchParams() are dynamic functions.
