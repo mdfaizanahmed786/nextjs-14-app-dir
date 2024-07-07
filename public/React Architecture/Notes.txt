@@ -41,3 +41,33 @@ There are three components in a page
 
 If streaming is not used, entire page will load in 4 se
 if streaming is used, header is sent first, then product details are fetched by wrapping in suspense boundary and then product reviews in an another suspense boundary.
+
+
+INSTALL SERVER-ONLY PACKAGE, TO TEL DEV THAT NOT TO INCLUDE SERVER UTILITIES IN THE CLIENT SIDE.
+
+
+if you have component that requires client functionality, use it in a server route. That client component has 'use client' directive.
+
+
+For context providers:
+Use that useContext in a client component, and wrap that in the root layout in the next.js app.
+
+
+
+client-only package. Similar to sever-only package we can include them in the defined utilties function
+
+
+
+if a component is marked as client component and subsequently its children are also marked as client components, then the entire tree is marked as client component.
+Hence narrow down the client functionality.
+
+
+1. A client comp can be imported in a client comp
+2. A server comp can be imported in a server comp
+3. A client comp can be imported in a server comp
+4. A server comp cannot be imported in a client comp because server features will not be available in the client side.
+One solution is to use it in a props.
+Where that client component is present just wrap a server component
+<ClientComponent>
+    <ServerComponent />
+</ClientComponent>
