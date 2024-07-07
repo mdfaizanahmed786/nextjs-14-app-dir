@@ -1,0 +1,43 @@
+There are three types of server rendering patterns:
+1. Static rendering
+2. Dynamic rendering
+3. HTML Streaming
+
+
+Static Rendering:
+In Static Rendering the page is pre-rendered and delivered to the client with minimal code. 
+For server component: RSC Payload is generated and sent to the client where react takes over and renders the page.
+For client components: RSC Payload is generated along with instructions to the client side, that includes the references to the javascript chunks.
+After the application is built, it acts as static rendering.
+On static rendering the routes along with js chunks and RSC payload are downloaded and pre-fetched, which means it is a concept in which next.js downloads or loads the route when it is users' viewport.
+For static routes, they are pre-fetched and cached by default.
+
+For hydration, JS IS ALSO FETCHED.(WHICH IS THAT CHUNK FOR CLIENT)
+STATIC RENDERING IS GREAT FOR PERFORMANCE SEO, BLOGGING, DOCUMENTATION AND MARKETING PAGES.
+
+in static rendering the output is present in .next folder, which is the build folder.
+
+
+
+Dynamic Rendering:
+In Dynamic Rendering, it is useful the data is personalized to user or information when it useful only during the request time
+E-commerce apps, user dashboards, social feed etc.
+During rendering if any dynamic function is discovered such as: cookies(), searchParams, headers() etc. then Next.js switches that route to dynamic rendering.
+Example:(this is dynamically generated)
+function Dashboard() {
+    const cookieStore= cookies();
+    const { user } = useAuth();
+    return <h1>Welcome {user.name}</h1>
+}
+For dynamic rendering, the output is not present in that folder though.
+
+
+Streaming:
+In Streaming, the server sends the response in chunks to the client.
+There are three components in a page
+1. Header
+2. Product Details: will take 3 sec
+3. Product Reviews: will take  4 sec
+
+If streaming is not used, entire page will load in 4 se
+if streaming is used, header is sent first, then product details are fetched by wrapping in suspense boundary and then product reviews in an another suspense boundary.
